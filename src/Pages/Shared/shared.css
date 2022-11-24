@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap');
+
 .gray-text {
 
     color: rgb(115, 119, 150);
@@ -5,4 +7,26 @@
 
 .btn-gray {
     background-color: #3A4256;
+}
+
+.hover-li:hover {
+    background-color: rgba(68, 74, 97, 0.336);
+    color: white;
+    border-radius: 5px;
+}
+
+.hover-li {
+    color: #6b6e74;
+
+}
+
+
+.bebus {
+    font-family: 'Bebas Neue', cursive;
+
+}
+
+.popin {
+    font-family: 'Poppins', sans-serif;
+
 }
