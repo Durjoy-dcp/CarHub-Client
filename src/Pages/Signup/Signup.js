@@ -1,12 +1,46 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
+
 
 const Signup = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { signup, login, user, loading, logOut, updateInfo } = useContext(AuthContext)
+    const imageHostKey = process.env.REACT_APP_imgbb;
     const [signUpError, setSignUpError] = useState('');
     const handleToSubmit = data => {
-        console.log(data);
+        const img = data.img[0];
+        const formData = new FormData();
+        formData.append('image', img);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imageData => {
+                if (imageData.success) {
+                    signup(data.email, data.password)
+                        .then(result => {
+                            const user = result.user;
+                            const userInfo = {
+                                displayName: data.name,
+                                photoURL: imageData.data.url
+                            }
+
+                            updateInfo(userInfo)
+                                .then(() => {
+                                    console.log(user)
+                                })
+                                .catch(() => { })
+
+                        })
+                        .catch(error => {
+                        })
+                }
+            })
+
     }
     const [buyorseller, setBuyOrSerller] = useState('Buyer');
     return (
@@ -73,10 +107,20 @@ const Signup = () => {
 
                         </div>
                     </div>
+                    <div className="form-control w-full ">
+                        <label className="label">
+                            <span className="label-text">Add a Profile Picture</span>
+                        </label>
+                        <input className="file-input file-input-bordered mb-5 file-input-sm w-full" {...register("img", {
+                            required: "Provide a Image"
+                        })} type="file" placeholder="image" />
+
+
+                    </div>
 
                 </div>
 
-                <div className='w-full text-center'>
+                <div className='w-full text-center my-2'>
 
                     <input type="submit" className='btn btn-gray   w-full ' value="Sign Up" />
                 </div>
