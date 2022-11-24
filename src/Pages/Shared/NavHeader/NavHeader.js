@@ -10,7 +10,7 @@ const NavHeader = () => {
         logOut()
             .then((res) => {
                 console.log('logout')
-                console.log(user)
+                // console.log(user)
             })
             .catch(() => { })
     }

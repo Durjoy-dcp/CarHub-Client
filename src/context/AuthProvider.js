@@ -26,6 +26,23 @@ const AuthProvider = ({ children }) => {
     const googleSignIn = () => {
         return signInWithPopup(auth, gProvider)
     }
+    const saveUser = (name, email, role, img) => {
+        const user = {
+            name,
+            email,
+            role,
+            img
+        }
+        return fetch('http://localhost:5000/user', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user)
+        })
+
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 
@@ -36,7 +53,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const authInfo = { signup, login, user, loading, logOut, updateInfo, googleSignIn }
+    const authInfo = { signup, login, user, loading, logOut, updateInfo, googleSignIn, saveUser }
 
     return (
         <AuthContext.Provider value={authInfo}>
