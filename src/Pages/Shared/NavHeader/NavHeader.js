@@ -18,6 +18,7 @@ const NavHeader = () => {
     const menu = <>
         <li className='my-2 mx-2 text-white'><Link to='/blog'>Blog</Link></li>
         <li className='my-2 mx-2 text-white'><Link to='/catagory'>Catagory</Link></li>
+        <li className='my-2 mx-2 text-white'><Link to='/dashboard'>Dashboard</Link></li>
         {
             (user && user?.uid) ?
                 < li className='my-2 mx-2 text-white'><button className='btn btn-accent  rounded-lg  btn-outline' onClick={handleToLogOut} >Log Out</button></li> :
