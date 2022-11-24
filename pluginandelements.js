@@ -1,0 +1,9 @@
+/*
+all the elements 
+and plugin
+
+tailwindcss 
+daisyui
+react router dom
+
+*/
