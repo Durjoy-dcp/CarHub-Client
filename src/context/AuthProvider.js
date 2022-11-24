@@ -4,7 +4,7 @@ import app from '../firebase/firebase.config';
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
-    const [user, setuser] = useState();
+    const [user, setuser] = useState('');
     const [loading, seLoading] = useState(true);
 
     const signup = (email, password) => {
@@ -22,11 +22,11 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, userInfo)
     }
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            if (currentUser) {
-                setuser(currentUser)
-                seLoading(false)
-            }
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+            setuser(currentUser)
+            seLoading(false)
+
         })
         return () => unsubscribe();
     }, [])

@@ -6,11 +6,13 @@ import { AuthContext } from '../../../context/AuthProvider';
 const NavHeader = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleToLogOut = () => {
+        console.log("it is clicked")
         logOut()
-            .then(() => {
-
+            .then((res) => {
+                console.log('logout')
+                console.log(user)
             })
-            .catch(error => { })
+            .catch(() => { })
     }
 
     const menu = <>
