@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 
 const Signup = () => {
@@ -129,7 +130,7 @@ const Signup = () => {
                     signUpError && <p className='text-red-600'>{signUpError}</p>
                 }
                 <div className="divider">OR</div>
-                <button className='btn btn-outline  w-full'>CONTINUE WITH GOOGLE</button>
+                <SocialLogin></SocialLogin>
             </form>
 
         </div>
