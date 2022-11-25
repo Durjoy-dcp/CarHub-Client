@@ -11,6 +11,19 @@ const AllCars = () => {
     const [isSeller] = useSeller(user?.email)
     const [isAdmin] = useAdmin(user?.email)
     console.log(allcars)
+    const handleWishlist = car => {
+        car.email = user.email;
+        // console.log(car._id, 'is calling');
+        fetch('http://localhost:5000/wishlist', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(car)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data, "add to wishlist"))
+    }
     return (
 
         <div className="drawer drawer-mobile">
@@ -36,14 +49,12 @@ const AllCars = () => {
                     {
                         allcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
                             <button className='btn btn-secondary  mx-2'>Book Now</button>
-                            <button className='btn btn-gray '>Add on WishList</button>
+                            <button className='btn btn-gray ' onClick={() => handleWishlist(car)}>Add on WishList</button>
                         </div>}</ProductCard>)
                     }
                 </div>
 
                 <div className='relative h-full'>
-
-
                     <label tabIndex={0} className="btn fixed bg-slate-800  text-white top-1/2 left-0 w-16  lg:hidden" htmlFor="dashboardDrawer">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>

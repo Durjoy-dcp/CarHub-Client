@@ -56,7 +56,11 @@ const DashboardLayout = () => {
 
                         }
                         {
-                            (!isAdmin && !isSeller) && <h1>This is Buyer</h1>
+                            (!isAdmin && !isSeller) &&
+                            <>
+                                <li className='hover-li'><Link to='/dashboard/mywishlist'>My WishList </Link></li>
+                                <li className='hover-li'><Link to='/dashboard/allsellers'>My Orders </Link></li>
+                            </>
 
                         }
                     </ul>
