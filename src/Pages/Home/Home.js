@@ -7,7 +7,6 @@ const Home = () => {
         <div>
             <HeaderBanner></HeaderBanner>
             <div className='grid justify-items-center	'>
-
                 <Stat></Stat>
             </div>
         </div>
