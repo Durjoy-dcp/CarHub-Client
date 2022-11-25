@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import DashboardLayout from '../Layout/DashboardLayout';
 import Main from '../Layout/Main/Main';
+import AllCars from '../Pages/AllCars/AllCars';
 import AddAProduct from '../Pages/Dashboards/AddAProduct/AddAProduct';
 import AllBuyers from '../Pages/Dashboards/AllBuyers/AllBuyers';
 import AllSellers from '../Pages/Dashboards/AllSellers/AllSellers';
@@ -28,6 +29,11 @@ const router = createBrowserRouter(
                 {
                     path: '/signup',
                     element: <Signup></Signup>
+                },
+                {
+                    path: '/catagory/:id',
+                    element: <AllCars></AllCars>,
+                    loader: async ({ params }) => fetch(`http://localhost:5000/catagory/${params.id}`)
                 },
                 {
                     path: '/login',

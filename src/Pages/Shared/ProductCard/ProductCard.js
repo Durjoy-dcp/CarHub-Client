@@ -8,7 +8,7 @@ const ProductCard = ({ product, children }) => {
     const used_year = currentYear - year;
     return (
         <div className="card card-compact  bg-base-100 shadow-xl max-w-sm">
-            <figure><img src={img} alt="Shoes" /></figure>
+            <figure><img src={img} className=" h-64  " alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>{description.length > 60 ? description.slice(0, 60) + '...' : description}</p>

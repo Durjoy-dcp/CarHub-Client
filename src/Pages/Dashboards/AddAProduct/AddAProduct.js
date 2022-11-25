@@ -163,7 +163,7 @@ const AddAProduct = () => {
 
                         <select className="select select-bordered  w-full my-2 " {...register("catagory")}>
                             <option>SEDAN</option>
-                            <option>SPORTS CAR</option>
+                            <option>SPORTS</option>
                             <option>SUV</option>
 
 

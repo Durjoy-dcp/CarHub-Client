@@ -4,7 +4,8 @@ import { AuthContext } from '../../context/AuthProvider';
 const useSeller = (email) => {
     const [isSeller, setIsSeller] = useState(false);
     const [sellerLoading, setSellerLoadin] = useState(true);
-    const { isverified, setIsVerified } = useContext(AuthContext);
+    const { isverified, setIsVerified, userRoll, setUserRoll } = useContext(AuthContext);
+
     useEffect(() => {
         fetch(`http://localhost:5000/user/seller?email=${email}`)
             .then(res => res.json())
@@ -12,6 +13,9 @@ const useSeller = (email) => {
                 setIsSeller(data.isSeller)
                 // console.log(data.verified, data.isSeller)
                 setIsVerified(data.verified)
+                if (data.isSeller) {
+                    setUserRoll('Seller')
+                }
                 setSellerLoadin(false)
             })
 

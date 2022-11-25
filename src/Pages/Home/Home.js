@@ -1,5 +1,6 @@
 import React from 'react';
 import Stat from '../Shared/Stat/Stat';
+import CatagoryShow from './CatagoryShow/CatagoryShow';
 import HeaderBanner from './HeaderBanner/HeaderBanner';
 
 const Home = () => {
@@ -7,7 +8,10 @@ const Home = () => {
         <div>
             <HeaderBanner></HeaderBanner>
             <div className='grid justify-items-center	'>
-                <Stat></Stat>
+
+                <h1 className="text-5xl bebus">SELECT ANY TO EXPLORE YOUR DREAM CAR</h1>
+                <CatagoryShow></CatagoryShow>
+                <Stat className="my-5"></Stat>
             </div>
         </div>
     );

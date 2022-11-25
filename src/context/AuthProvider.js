@@ -10,7 +10,9 @@ const AuthProvider = ({ children }) => {
     console.log(isverified)
     const gProvider = new GoogleAuthProvider();
     const currentYear = new Date().getFullYear();
+    const [userRoll, setUserRoll] = useState('Buyer');
     // console.log(currentYear)
+    console.log(userRoll)
 
     const signup = (email, password) => {
         seLoading(true)
@@ -56,7 +58,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const authInfo = { signup, login, user, loading, logOut, updateInfo, googleSignIn, saveUser, isverified, setIsVerified, currentYear }
+    const authInfo = { signup, login, userRoll, setUserRoll, user, loading, logOut, updateInfo, googleSignIn, saveUser, isverified, setIsVerified, currentYear }
 
     return (
         <AuthContext.Provider value={authInfo}>
