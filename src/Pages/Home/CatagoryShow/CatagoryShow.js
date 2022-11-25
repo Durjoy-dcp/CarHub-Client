@@ -9,9 +9,7 @@ import useAdmin from '../../../hooks/UseAdmin/UseAdmin';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const CatagoryShow = () => {
-    const { user } = useContext(AuthContext)
-    const [isSeller] = useSeller(user?.email)
-    const [isAdmin] = useAdmin(user?.email)
+
     const subname = 'SUV';
     const sportsname = 'SPORTS';
     const sedanname = 'SEDAN'

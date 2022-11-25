@@ -34,7 +34,7 @@ const ProductCard = ({ product, children }) => {
                     <p className='text-xs text-end'>Posted <Moment fromNow>{date}</Moment></p>
 
                 </div>
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-center ">
 
                     {
                         children

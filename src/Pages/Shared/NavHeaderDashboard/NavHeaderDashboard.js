@@ -17,13 +17,12 @@ const NavHeaderDashboard = () => {
 
     const menu = <>
         <li className='my-2 mx-2 font-bold text-white md:text-black'><Link to='/blog'>Blog</Link></li>
-        <li className='my-2 mx-2 font-bold text-white md:text-black'><Link to='/catagory'>Catagory</Link></li>
+
         <li className='my-2 mx-2 font-bold text-white md:text-black'><Link to='/dashboard'>Dashboard</Link></li>
         {
             (user && user?.uid) ?
                 < li className='my-2 mx-2 font-bold text-white md:text-black'><button className='btn btn-accent  rounded-lg  btn-outline' onClick={handleToLogOut} >Log Out</button></li> :
                 <>
-
                     <li className='my-2 mx-2 font-bold text-white md:text-black'><Link to='/login'>Login</Link></li>
                     <li className='my-2 mx-2 font-bold text-white md:text-black'><Link to='/signup'>Sign Up</Link></li>
                 </>

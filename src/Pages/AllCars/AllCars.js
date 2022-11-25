@@ -3,9 +3,13 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import ProductCard from '../Shared/ProductCard/ProductCard';
 import logo from '../../assets/logo.png'
+import useSeller from '../../hooks/UseSeller/useSeller';
+import useAdmin from '../../hooks/UseAdmin/UseAdmin';
 const AllCars = () => {
     const allcars = useLoaderData();
     const { userRoll, user } = useContext(AuthContext)
+    const [isSeller] = useSeller(user?.email)
+    const [isAdmin] = useAdmin(user?.email)
     console.log(allcars)
     return (
 
@@ -21,7 +25,7 @@ const AllCars = () => {
                             </div>
                         </div>
 
-                        <div className="chat-bubble">To Book You must Login as a Buyer</div>
+                        <div className="chat-bubble">{userRoll === 'Seller' ? "You are Seller ." : "To add Product You should Login as a Seller & "} To Book You must Login as a Buyer</div>
 
                     </div>
 
@@ -30,7 +34,10 @@ const AllCars = () => {
                 }
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3'>
                     {
-                        allcars.map(car => <ProductCard key={car._id} product={car}></ProductCard>)
+                        allcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
+                            <button className='btn btn-secondary  mx-2'>Book Now</button>
+                            <button className='btn btn-gray '>Add on WishList</button>
+                        </div>}</ProductCard>)
                     }
                 </div>
 
