@@ -1,11 +1,50 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const BookingModal = ({ setSelectedOption, setSelectedData, selectedData }) => {
     const { user } = useContext(AuthContext);
     console.log(selectedData)
     const handleBooking = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const location = form.location.value;
+        const booking = {
+            price: selectedData.price,
+            buyer: name,
+            email,
+            phone,
+            catagory: selectedData.catagory,
+            location,
+            name: selectedData.name,
+            serial: selectedData._id,
+            img: selectedData.img
 
+        }
+        // console.log(booking)
+        fetch('http://localhost:5000/booking', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    setSelectedOption(null)
+                    toast.success("Booked Successfully , You can see and Pay for this on Your dashboard > My Order")
+                    setSelectedData(null)
+
+                } else {
+                    toast.error(data.msg)
+                    setSelectedData(null)
+
+                }
+            })
     }
     return (
         <div>

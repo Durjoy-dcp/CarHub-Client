@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { AuthContext } from '../../../context/AuthProvider';
-import OrderCard from '../../Shared/OrderCard/OrderCard';
-import Spinner from '../../Shared/Spinner/Spinner';
+import { AuthContext } from '../../context/AuthProvider';
+import OrderCard from '../Shared/OrderCard/OrderCard';
+import Spinner from '../Shared/Spinner/Spinner';
 
-const MyWishList = () => {
+const MyOrders = () => {
     const { user } = useContext(AuthContext);
-    const uri = `http://localhost:5000/wishlist?email=${user.email}`
+    const uri = `http://localhost:5000/bookinglist?email=${user.email}`
     const { data: cars = [], isLoading } = useQuery({
         queryKey: ['wishlist', user.email],
         queryFn: async () => {
@@ -22,10 +22,9 @@ const MyWishList = () => {
     if (isLoading) {
         return <Spinner></Spinner>
     }
-    console.log(cars)
     return (
         <div>
-            <h1 className='text-6xl bebus my-3 mx-3'>My Wishlist</h1>
+            <h1 className='text-6xl bebus my-3 mx-3'>My Orders</h1>
 
             <div className="w-full ">
                 {
@@ -37,4 +36,4 @@ const MyWishList = () => {
     );
 };
 
-export default MyWishList;
+export default MyOrders;

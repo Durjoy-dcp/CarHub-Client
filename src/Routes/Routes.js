@@ -11,6 +11,7 @@ import MyWishList from '../Pages/Dashboards/MyWishList/MyWishList';
 import Welcome from '../Pages/Dashboards/WelCome/Welcome';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
+import MyOrders from '../Pages/MyOrders/MyOrders';
 import Signup from '../Pages/Signup/Signup';
 import AdminRoute from './AdminRoute';
 import Private from './Private/Private';
@@ -71,8 +72,8 @@ const router = createBrowserRouter(
                     element: <Private><MyWishList></MyWishList></Private>
                 },
                 {
-                    path: '/dashboard/mywishlist',
-                    element: <Private><MyWishList></MyWishList> </Private>
+                    path: '/dashboard/myorders',
+                    element: <Private> <MyOrders></MyOrders></Private>
                 },
             ]
 
