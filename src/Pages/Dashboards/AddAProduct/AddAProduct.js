@@ -6,8 +6,9 @@ import { AuthContext } from '../../../context/AuthProvider';
 const AddAProduct = () => {
     // console.log("here")
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { user } = useContext(AuthContext)
+    const { user, isverified } = useContext(AuthContext)
     const imageHostKey = process.env.REACT_APP_imgbb;
+    console.log(isverified)
     console.log(user);
     const handleAddProduct = (data) => {
         console.log(data.img[0])
@@ -39,7 +40,8 @@ const AddAProduct = () => {
                         phone: data.phone,
                         condition: data.condition,
                         description: data.description,
-                        sellername: user.displayName
+                        sellername: user.displayName,
+                        verifiedSeller: isverified
 
                     }
 
@@ -135,6 +137,7 @@ const AddAProduct = () => {
                             <option value="2022" >2022</option>
 
                         </select>
+                        <p className='text-sm gray-text'>We don't recommend to sell a car which is used more than 5years</p>
 
 
                     </div>

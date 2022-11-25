@@ -6,7 +6,8 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setuser] = useState('');
     const [loading, seLoading] = useState(true);
-
+    const [isverified, setIsVerified] = useState(false);
+    console.log(isverified)
     const gProvider = new GoogleAuthProvider();
 
     const signup = (email, password) => {
@@ -53,7 +54,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const authInfo = { signup, login, user, loading, logOut, updateInfo, googleSignIn, saveUser }
+    const authInfo = { signup, login, user, loading, logOut, updateInfo, googleSignIn, saveUser, isverified, setIsVerified }
 
     return (
         <AuthContext.Provider value={authInfo}>
