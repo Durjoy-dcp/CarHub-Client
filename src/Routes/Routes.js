@@ -38,7 +38,7 @@ const router = createBrowserRouter(
         },
         {
             path: '/dashboard',
-            element: <DashboardLayout></DashboardLayout>,
+            element: <Private><DashboardLayout></DashboardLayout></Private>,
             children: [
                 {
                     path: '/dashboard',
@@ -46,19 +46,19 @@ const router = createBrowserRouter(
                 },
                 {
                     path: '/dashboard/allsellers',
-                    element: <AllSellers></AllSellers>
+                    element: <AdminRoute><AllSellers></AllSellers> </AdminRoute>
                 },
                 {
                     path: '/dashboard/allbuyers',
-                    element: <AllBuyers></AllBuyers>
+                    element: <AdminRoute><AllBuyers></AllBuyers> </AdminRoute>
                 },
                 {
                     path: '/dashboard/addaproduct',
-                    element: <AddAProduct></AddAProduct>
+                    element: <SellerRoute><AddAProduct></AddAProduct></SellerRoute>
                 },
                 {
                     path: '/dashboard/myproducts',
-                    element: <MyProducts></MyProducts>
+                    element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
                 },
                 {
                     path: '/dashboard/mywishlist',

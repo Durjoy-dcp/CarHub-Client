@@ -2,7 +2,7 @@ import React from 'react';
 
 const Stat = () => {
     return (
-        <div className="stats shadow  ">
+        <div className="stats shadow  md:flex block ">
 
             <div className="stat ">
                 <div className="stat-figure text-primary">
