@@ -12,13 +12,13 @@ const ProductCard = ({ product, children }) => {
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>{description.length > 60 ? description.slice(0, 60) + '...' : description}</p>
-                <div className='grid grid-cols-2 '>
+                <div className='flex justify-between '>
                     <div className=' '>
-                        <p className='text-xs'><FaMapMarkerAlt className=' mr-1 inline ' />{location}</p>
+                        <p className=''><FaMapMarkerAlt className=' mr-1 inline ' />{location}</p>
                     </div>
 
                     <div>
-                        <p className='text-xs px-2'>{used_year === 0 ? '1 Year Running ' : used_year + 1 + ' years Running '}</p>
+                        <p className='px-1 mx-2'>{used_year === 0 ? '1 Year Running ' : used_year + 1 + ' years Running '}</p>
                     </div>
                 </div>
                 <div>
