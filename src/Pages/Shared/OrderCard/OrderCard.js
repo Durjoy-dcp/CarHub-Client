@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const OrderCard = ({ car }) => {
 
@@ -16,7 +17,7 @@ const OrderCard = ({ car }) => {
                     <div className="card-actions justify-end">
                         {
                             (car?.issold && car?.newOwner === car.email) ? <div className='text-end'><p className='text-3xl font-bold  bg-blue-300  rounded-lg shadow-lg text-center'>Paid <br /> </p> <p className='text-xl'>I am the new Owner</p></div> : (car?.issold) ? <div><p className='text-3xl bg-blue-300  rounded-lg  font-bold text-end px-3'>Sold Out</p></div> :
-                                < button className="btn btn-primary ">Pay</button>
+                                <Link to={`/dashboard/payment/${car.serial}`}><button className='btn btn-primary  '>Pay</button></Link>
                         }
                     </div>
                 </div>

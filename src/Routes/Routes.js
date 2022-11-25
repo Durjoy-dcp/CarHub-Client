@@ -13,6 +13,7 @@ import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import MyOrders from '../Pages/MyOrders/MyOrders';
 import Signup from '../Pages/Signup/Signup';
+import Payment from '../Payment/Payment';
 import AdminRoute from './AdminRoute';
 import Private from './Private/Private';
 import SellerRoute from './SellerRoute';
@@ -74,6 +75,12 @@ const router = createBrowserRouter(
                 {
                     path: '/dashboard/myorders',
                     element: <Private> <MyOrders></MyOrders></Private>
+                },
+                {
+
+                    path: '/dashboard/payment/:id',
+                    element: <Payment></Payment>,
+                    loader: async ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
                 },
             ]
 
