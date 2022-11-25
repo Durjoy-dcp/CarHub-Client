@@ -35,9 +35,8 @@ const AddAProduct = () => {
                         year: data.year,
                         location: data.location,
                         phone: data.phone,
-                        condition: data.condition
-
-
+                        condition: data.condition,
+                        description: data.description
 
                     }
 
