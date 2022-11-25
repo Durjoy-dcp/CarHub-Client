@@ -8,6 +8,7 @@ const AddAProduct = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext)
     const imageHostKey = process.env.REACT_APP_imgbb;
+    console.log(user);
     const handleAddProduct = (data) => {
         console.log(data.img[0])
 
@@ -23,6 +24,7 @@ const AddAProduct = () => {
             .then(res => res.json())
             .then(imageData => {
 
+
                 if (imageData.success) {
 
                     const product = {
@@ -36,7 +38,8 @@ const AddAProduct = () => {
                         location: data.location,
                         phone: data.phone,
                         condition: data.condition,
-                        description: data.description
+                        description: data.description,
+                        sellername: user.displayName
 
                     }
 
