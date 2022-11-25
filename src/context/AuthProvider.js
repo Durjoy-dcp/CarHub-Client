@@ -9,6 +9,8 @@ const AuthProvider = ({ children }) => {
     const [isverified, setIsVerified] = useState(false);
     console.log(isverified)
     const gProvider = new GoogleAuthProvider();
+    const currentYear = new Date().getFullYear();
+    // console.log(currentYear)
 
     const signup = (email, password) => {
         seLoading(true)
@@ -54,7 +56,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const authInfo = { signup, login, user, loading, logOut, updateInfo, googleSignIn, saveUser, isverified, setIsVerified }
+    const authInfo = { signup, login, user, loading, logOut, updateInfo, googleSignIn, saveUser, isverified, setIsVerified, currentYear }
 
     return (
         <AuthContext.Provider value={authInfo}>
