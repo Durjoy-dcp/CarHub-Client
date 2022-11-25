@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import ProductCard from '../Shared/ProductCard/ProductCard';
 import logo from '../../assets/logo.png'
 import useSeller from '../../hooks/UseSeller/useSeller';
 import useAdmin from '../../hooks/UseAdmin/UseAdmin';
+import BookingModal from './BookingModal/BookingModal';
 const AllCars = () => {
     const allcars = useLoaderData();
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedData, setSelectedData] = useState(null);
     const { userRoll, user } = useContext(AuthContext)
     const [isSeller] = useSeller(user?.email)
     const [isAdmin] = useAdmin(user?.email)
@@ -24,6 +27,7 @@ const AllCars = () => {
             .then(res => res.json())
             .then(data => console.log(data, "add to wishlist"))
     }
+
     return (
 
         <div className="drawer drawer-mobile">
@@ -48,9 +52,15 @@ const AllCars = () => {
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3'>
                     {
                         allcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
-                            <button className='btn btn-secondary  mx-2'>Book Now</button>
-                            <button className='btn btn-gray ' onClick={() => handleWishlist(car)}>Add on WishList</button>
+                            <p>
+                                <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() => setSelectedData(car)}>Book Now</label>
+                                <button className='btn btn-gray mx-2 my-2 ' onClick={() => handleWishlist(car)}>Add on WishList</button></p>
                         </div>}</ProductCard>)
+                    }
+                </div>
+                <div>
+                    {
+                        selectedData && <BookingModal setSelectedOption={setSelectedOption} selectedData={selectedData} setSelectedData={setSelectedData}></BookingModal>
                     }
                 </div>
 
@@ -77,6 +87,7 @@ const AllCars = () => {
                 </ul>
 
             </div>
+
         </div >
     );
 };
