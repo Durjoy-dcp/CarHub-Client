@@ -4,12 +4,13 @@ import { AuthContext } from '../../../context/AuthProvider';
 import logo from '../../../assets/logo.png'
 
 const NavHeaderDashboard = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, setUserRoll } = useContext(AuthContext);
     const handleToLogOut = () => {
         console.log("it is clicked")
         logOut()
             .then((res) => {
                 console.log('logout')
+                setUserRoll('Buyer')
                 // console.log(user)
             })
             .catch(() => { })

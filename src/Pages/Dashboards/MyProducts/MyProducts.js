@@ -51,6 +51,21 @@ const MyProducts = () => {
                 }
             })
     }
+    const handleAvailable = car => {
+        fetch(`http://localhost:5000/available`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(car),
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+
+            })
+    }
 
     return (
         <div>
@@ -61,7 +76,7 @@ const MyProducts = () => {
                     products.map(product => <ProductCard key={product._id} product={product}>
 
                         {
-                            (product?.issold) ? <div className='w-full'> <p className='text-xs gray-text'> Status: Already Sold</p> <button className='m-1 p-1 w-full bg-blue-400 rounded btn-circle text-xl text-white text-center '>Mark As Available</button> <div> <button className='btn btn-primary w-full  m-1 p-1' onClick={() => handleDelete(product)}>DELETE</button></div></div> : <div className='w-full'> <p className='text-xs gray-text'> Status: Available</p> <p className='m-1 btn p-1 w-full bg-blue-400 rounded btn-circle text-xl text-white text-center '> Mark As Sold</p> <div> <button className='btn btn-primary w-full  m-1 p-1' onClick={() => handleDelete(product)}>DELETE</button></div><div> <button className='btn btn-secondary w-full  m-1 p-1'>Advertise</button></div></div>
+                            (product?.issold) ? <div className='w-full'> <p className='text-xs gray-text'> Status: Already Sold</p> <button className='m-1 p-1 w-full bg-blue-400 rounded btn-circle text-xl text-white text-center ' onClick={() => handleAvailable(product)}>Mark As Available</button> <div> <button className='btn btn-primary w-full  m-1 p-1' onClick={() => handleDelete(product)}>DELETE</button></div></div> : <div className='w-full'> <p className='text-xs gray-text'> Status: Available</p> <p className='m-1 btn p-1 w-full bg-blue-400 rounded btn-circle text-xl text-white text-center '> Mark As Sold</p> <div> <button className='btn btn-primary w-full  m-1 p-1' onClick={() => handleDelete(product)}>DELETE</button></div><div> <button className='btn btn-secondary w-full  m-1 p-1'>Advertise</button></div></div>
                         }
                     </ProductCard>)
                 }
