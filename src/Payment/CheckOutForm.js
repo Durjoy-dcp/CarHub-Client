@@ -67,7 +67,6 @@ const CheckOutForm = ({ booking }) => {
         if (paymentIntent.status === 'succeeded') {
 
             const payment = {
-                price,
                 transactionID: paymentIntent.id,
                 email: user.email,
                 bookingId: booking._id
