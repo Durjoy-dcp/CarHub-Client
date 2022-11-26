@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const AddAProduct = () => {
@@ -8,6 +9,7 @@ const AddAProduct = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { user, isverified } = useContext(AuthContext)
     const imageHostKey = process.env.REACT_APP_imgbb;
+    const navigate = useNavigate()
     console.log(isverified)
     console.log(user);
     const handleAddProduct = (data) => {
@@ -60,7 +62,7 @@ const AddAProduct = () => {
                         .then(result => {
                             console.log(result);
                             toast.success(`${data.name} is added successfully`)
-
+                            navigate('/dashboard/myproducts')
 
                         })
                 }

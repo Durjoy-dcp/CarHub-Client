@@ -95,7 +95,7 @@ const MyProducts = () => {
             serial: car._id,
             condition: car.condition,
             description: car.description,
-            sellername: car.displayName,
+            sellername: car.sellername,
             verifiedSeller: car.verifiedSeller,
             issold: false,
             newOwner: "",
@@ -132,7 +132,7 @@ const MyProducts = () => {
                     products.map(product => <ProductCard key={product._id} product={product}>
 
                         {
-                            (product?.issold) ? <div className='w-full'> <p className='text-xs gray-text'> Status: Already Sold</p> <button className='m-1 p-1 w-full bg-blue-400 rounded btn-circle text-xl text-white text-center ' onClick={() => handleAvailable(product)}>Mark As Available</button> <div> <button className='btn btn-primary w-full  m-1 p-1' onClick={() => handleDelete(product)}>DELETE</button></div></div> : <div className='w-full'> <p className='text-xs gray-text'> Status: Available</p> <p className='m-1 btn p-1 w-full bg-blue-400 rounded btn-circle text-xl text-white text-center ' onClick={() => handleSold(product)}> Mark As Sold</p> <div> <button className='btn btn-primary w-full  m-1 p-1' onClick={() => handleDelete(product)}>DELETE</button></div><div> <button className='btn btn-secondary w-full  m-1 p-1' onClick={() => handleToAddvertise(product)}>Advertise</button></div></div>
+                            (product?.issold) ? <div className='w-full'> <p className='text-xs gray-text'> Status: Already Sold</p> <button className='m-1 p-1 w-full bg-blue-400 rounded btn-circle text-xl text-white text-center btn-sm' onClick={() => handleAvailable(product)}>Mark As Available</button> <div> <button className='btn btn-primary btn-sm w-full  m-1 ' onClick={() => handleDelete(product)}>DELETE</button></div></div> : <div className='w-full'> <p className='text-xs gray-text'> Status: Available</p> <p className='m-1 btn btn-sm w-full bg-blue-400 rounded btn-circle text-xl text-white text-center ' onClick={() => handleSold(product)}> Mark As Sold</p> <div> <button className='btn btn-primary w-full btn-sm m-1 p-1' onClick={() => handleDelete(product)}>DELETE</button></div><div> <button className='btn btn-secondary w-full btn-sm m-1 p-1' onClick={() => handleToAddvertise(product)}>Advertise</button></div></div>
                         }
                     </ProductCard>)
                 }
