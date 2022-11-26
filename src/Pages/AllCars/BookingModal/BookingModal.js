@@ -21,7 +21,10 @@ const BookingModal = ({ setSelectedOption, setSelectedData, selectedData }) => {
             location,
             name: selectedData.name,
             serial: selectedData._id,
-            img: selectedData.img
+            img: selectedData.img,
+            issold: selectedData.issold,
+            newOwner: selectedData.newOwner,
+            txnid: selectedData.txnid
 
         }
         // console.log(booking)

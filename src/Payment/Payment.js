@@ -1,7 +1,10 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import logo from '../assets/logo.png'
-
+import CheckOutForm from './CheckOutForm';
+const stripePromise = loadStripe(process.env.REACT_APP_stripe_key)
 const Payment = () => {
     const booking = useLoaderData();
 
@@ -11,10 +14,11 @@ const Payment = () => {
         <div>
             <h3 className="text-6xl bebus my-3 mx-3"> Payment</h3>
 
-            <div className="chat chat-start animate-pulse flex justify-center w-full">
+            <div className="chat chat-start  flex justify-center w-full">
                 <div className="chat-image avatar">
                     <div className="w-20 rounded-full">
-                        <img src={logo} className="bg-slate-400 " />
+                        <img src={logo} className="bg-slate-400 anime animate-pulse " />
+
                     </div>
                 </div>
                 <div className=''>
@@ -23,10 +27,10 @@ const Payment = () => {
                 </div>
 
             </div>
-            <div className='w-96 my-6'>
-                {/* <Elements stripe={stripePromise}>
+            <div className=' my-6'>
+                <Elements stripe={stripePromise}>
                     <CheckOutForm booking={booking} />
-                </Elements> */}
+                </Elements>
 
             </div>
         </div>

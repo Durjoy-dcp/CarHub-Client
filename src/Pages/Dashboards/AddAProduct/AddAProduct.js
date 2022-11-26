@@ -41,7 +41,10 @@ const AddAProduct = () => {
                         condition: data.condition,
                         description: data.description,
                         sellername: user.displayName,
-                        verifiedSeller: isverified
+                        verifiedSeller: isverified,
+                        issold: false,
+                        newOwner: "",
+                        txnid: ""
 
                     }
 
