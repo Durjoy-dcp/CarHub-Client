@@ -8,7 +8,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_stripe_key)
 const Payment = () => {
     const booking = useLoaderData();
 
-    const { name, price } = booking;
+    const { name, price, serial } = booking;
     console.log(booking)
     return (
         <div>

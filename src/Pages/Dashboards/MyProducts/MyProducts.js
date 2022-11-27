@@ -13,7 +13,6 @@ const MyProducts = () => {
         queryFn: async () => {
             try {
 
-
                 const res = await fetch(uri, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`

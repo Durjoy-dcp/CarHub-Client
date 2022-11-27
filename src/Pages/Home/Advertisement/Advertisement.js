@@ -3,21 +3,23 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
 import useAdmin from '../../../hooks/UseAdmin/UseAdmin';
 import useSeller from '../../../hooks/UseSeller/useSeller';
-import BookingModal from '../../AllCars/BookingModal/BookingModal';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 import logo from '../../../assets/logo.png'
+import BookingModalofAd from '../../AllCars/BookingModal/BookingModalofAd';
 const Advertisement = () => {
     const [adcars, setAdCars] = useState([])
     const { userRoll, user } = useContext(AuthContext)
     const [isSeller] = useSeller(user?.email)
     const [isAdmin] = useAdmin(user?.email)
     const [selectedData, setSelectedData] = useState(null);
+    const [alterSeletedData, setAlterSelectedData] = useState(null);
     useEffect(() => {
         axios.get('http://localhost:5000/advertise')
             .then(data => setAdCars(data.data))
     }, [])
     const handleWishlist = car => {
         car.email = user.email;
+        car._id = car.serial;
 
         fetch('http://localhost:5000/wishlist', {
             method: 'PUT',
@@ -28,6 +30,15 @@ const Advertisement = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data, "add to wishlist"))
+    }
+    useEffect(() => {
+        setSelectedData(alterSeletedData)
+    }, [alterSeletedData])
+
+    const handleTosetSelectedData = car => {
+        // 6383687732e3b66a6503c7ff
+        car._id = car.serial;
+        setAlterSelectedData(car);
     }
     return (
         <div >
@@ -40,7 +51,7 @@ const Advertisement = () => {
 
                     <div>
                         {
-                            selectedData && <BookingModal selectedData={selectedData} setSelectedData={setSelectedData}></BookingModal>
+                            selectedData && <BookingModalofAd selectedData={selectedData} setSelectedData={setSelectedData}></BookingModalofAd>
                         }
                     </div>
                     <div>
@@ -66,7 +77,7 @@ const Advertisement = () => {
                                 adcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
                                     <p>
                                         <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() => setSelectedData(car)}>Book Now</label>
-                                        <button className='btn btn-gray mx-2 my-2 ' onClick={() => handleWishlist(car)}>Add on WishList</button></p>
+                                        <button className='btn btn-gray mx-2 my-2 ' onClick={() => setSelectedData(car)}>Add on WishList</button></p>
                                 </div>}</ProductCard>)
                             }
                         </div>
@@ -79,7 +90,7 @@ const Advertisement = () => {
             </div> */}
                 </>
             }
-        </div>
+        </div >
     );
 };
 

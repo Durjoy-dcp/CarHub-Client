@@ -51,6 +51,7 @@ const DashboardLayout = () => {
                             isAdmin && <>
                                 <li className='hover-li'><Link to='/dashboard/allbuyers'>All Buyers </Link></li>
                                 <li className='hover-li'><Link to='/dashboard/allsellers'>All Sellers</Link></li>
+                                <li className='hover-li'><Link to='/dashboard/reporteditem'>Reported Items</Link></li>
                             </>
 
 

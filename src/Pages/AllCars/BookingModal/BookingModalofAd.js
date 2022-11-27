@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 
-const BookingModal = ({ setSelectedOption, setSelectedData, selectedData }) => {
+const BookingModalofAd = ({ setSelectedOption, setSelectedData, selectedData }) => {
     const { user } = useContext(AuthContext);
     console.log(selectedData)
     const handleBooking = (event) => {
@@ -20,7 +20,7 @@ const BookingModal = ({ setSelectedOption, setSelectedData, selectedData }) => {
             catagory: selectedData.catagory,
             location,
             name: selectedData.name,
-            serial: selectedData._id,
+            serial: selectedData.serial,
             img: selectedData.img,
             issold: selectedData.issold,
             newOwner: selectedData.newOwner,
@@ -72,4 +72,4 @@ const BookingModal = ({ setSelectedOption, setSelectedData, selectedData }) => {
     );
 };
 
-export default BookingModal;
+export default BookingModalofAd;

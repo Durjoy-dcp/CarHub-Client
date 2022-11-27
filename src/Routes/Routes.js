@@ -8,6 +8,7 @@ import AllBuyers from '../Pages/Dashboards/AllBuyers/AllBuyers';
 import AllSellers from '../Pages/Dashboards/AllSellers/AllSellers';
 import MyProducts from '../Pages/Dashboards/MyProducts/MyProducts';
 import MyWishList from '../Pages/Dashboards/MyWishList/MyWishList';
+import ReportedItem from '../Pages/Dashboards/ReportedItem/ReportedItem';
 import Welcome from '../Pages/Dashboards/WelCome/Welcome';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
@@ -59,6 +60,10 @@ const router = createBrowserRouter(
                 {
                     path: '/dashboard/allbuyers',
                     element: <AdminRoute><AllBuyers></AllBuyers> </AdminRoute>
+                },
+                {
+                    path: '/dashboard/reporteditem',
+                    element: <AdminRoute><ReportedItem></ReportedItem> </AdminRoute>
                 },
                 {
                     path: '/dashboard/addaproduct',

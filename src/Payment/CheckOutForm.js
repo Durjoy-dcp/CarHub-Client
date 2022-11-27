@@ -12,6 +12,7 @@ const CheckOutForm = ({ booking }) => {
     const { displayName } = user
     const [transactionID, setTransactionID] = useState('')
     const { price } = booking
+    console.log(price)
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
         fetch("http://localhost:5000/create-payment-intent", {
