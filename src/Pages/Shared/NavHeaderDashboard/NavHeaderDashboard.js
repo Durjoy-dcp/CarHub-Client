@@ -1,16 +1,20 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import logo from '../../../assets/logo.png'
 
 const NavHeaderDashboard = () => {
     const { user, logOut, setUserRoll } = useContext(AuthContext);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const handleToLogOut = () => {
         console.log("it is clicked")
         logOut()
             .then((res) => {
                 console.log('logout')
                 setUserRoll('Buyer')
+                localStorage.removeItem("accessToken");
                 // console.log(user)
             })
             .catch(() => { })

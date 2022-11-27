@@ -14,6 +14,7 @@ const useToken = (email) => {
                         logOut()
                             .then(() => { })
                             .catch(er => console.log(er))
+                        localStorage.removeItem("accessToken");
 
                     }
                     else {

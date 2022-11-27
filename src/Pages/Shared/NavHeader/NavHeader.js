@@ -16,6 +16,9 @@ const NavHeader = () => {
                 console.log('logout')
                 setUserRoll('Buyer')
                 navigate(from, { replace: true })
+                localStorage.removeItem("accessToken");
+
+
                 // console.log(user)
             })
             .catch(() => { })
