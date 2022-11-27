@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 import Stat from '../Shared/Stat/Stat';
 import Advertisement from './Advertisement/Advertisement';
 import CatagoryShow from './CatagoryShow/CatagoryShow';
@@ -15,6 +16,7 @@ const Home = () => {
                 <Stat className="my-5"></Stat>
                 <Advertisement></Advertisement>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
