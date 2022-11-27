@@ -19,6 +19,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
     useEffect(() => {
         if (token) {
+            toast('Logged in  Succesfully');
             navigate(from, { replace: true })
             console.log("dhukse")
             seLoading(false)
@@ -31,7 +32,7 @@ const Login = () => {
             .then(res => {
 
                 console.log(res.user)
-                toast('Logged in  Succesfully');
+
                 setLoggedUserEmail(res.user.email);
                 console.log(loggedUserEmail)
 
