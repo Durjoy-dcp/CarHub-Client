@@ -26,6 +26,9 @@ const Login = () => {
 
         }
     }, [token])
+    // if (user) {
+    //     navigate('/');
+    // }
     const handleToLogin = (data) => {
         seLoading(true)
         login(data.email, data.password)

@@ -1,17 +1,21 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const AddAProduct = () => {
     // console.log("here")
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { user, isverified } = useContext(AuthContext)
+    const { user, isverified, setUserRoll, logOut } = useContext(AuthContext)
     const imageHostKey = process.env.REACT_APP_imgbb;
-    const navigate = useNavigate()
+
     console.log(isverified)
     console.log(user);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     const handleAddProduct = (data) => {
         console.log(data.img[0])
 
@@ -58,7 +62,17 @@ const AddAProduct = () => {
                         },
                         body: JSON.stringify(product)
                     })
-                        .then(res => res.json())
+                        .then(res => {
+                            if (res.status === 403) {
+                                setUserRoll('Buyer')
+                                logOut()
+                                    .then(() => {
+                                        localStorage.removeItem("accessToken");
+                                        navigate(from, { replace: true })
+                                    })
+                            }
+                            return res.json()
+                        })
                         .then(result => {
                             console.log(result);
                             toast.success(`${data.name} is added successfully`)

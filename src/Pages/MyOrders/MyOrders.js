@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import OrderCard from '../Shared/OrderCard/OrderCard';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const MyOrders = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut, setUserRoll } = useContext(AuthContext);
     const uri = `http://localhost:5000/bookinglist?email=${user.email}`
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const { data: cars = [], isLoading } = useQuery({
         queryKey: ['wishlist', user.email],
         queryFn: async () => {
@@ -15,6 +19,16 @@ const MyOrders = () => {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             });
+            if (res.status === 403) {
+                setUserRoll('Buyer')
+                logOut()
+                    .then(() => {
+
+                        localStorage.removeItem("accessToken");
+                        navigate(from, { replace: true })
+                    })
+
+            }
             const data = await res.json();
             return data;
         }

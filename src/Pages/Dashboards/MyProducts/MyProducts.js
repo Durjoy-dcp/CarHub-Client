@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 import Spinner from '../../Shared/Spinner/Spinner';
 
 const MyProducts = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut, setUserRoll } = useContext(AuthContext);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const uri = `http://localhost:5000/product?email=${user.email}`
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products', user.email],
@@ -18,6 +22,16 @@ const MyProducts = () => {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
                 });
+
+                if (res.status === 403) {
+                    setUserRoll('Buyer')
+                    logOut()
+                        .then(() => {
+                            localStorage.removeItem("accessToken");
+                            navigate(from, { replace: true })
+                        })
+
+                }
                 const data = await res.json();
                 return data;
             }
@@ -27,6 +41,9 @@ const MyProducts = () => {
         }
 
     })
+    if (isLoading) {
+        return <Spinner></Spinner>
+    }
     console.log(products)
     if (isLoading) {
         console.log("here")

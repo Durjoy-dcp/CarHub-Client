@@ -7,6 +7,7 @@ import useSeller from '../../hooks/UseSeller/useSeller';
 import useAdmin from '../../hooks/UseAdmin/UseAdmin';
 import BookingModal from './BookingModal/BookingModal';
 import ScrollIntoView from '../Shared/ScrollIntoView';
+import toast from 'react-hot-toast';
 const AllCars = () => {
     const allcars = useLoaderData();
     const [selectedOption, setSelectedOption] = useState(null);
@@ -27,7 +28,7 @@ const AllCars = () => {
             body: JSON.stringify(car)
         })
             .then(res => res.json())
-            .then(data => console.log(data, "add to wishlist"))
+            .then(data => toast.success('Added to wishlist'))
     }
 
     return (

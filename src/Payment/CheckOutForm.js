@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../context/AuthProvider';
 
 const CheckOutForm = ({ booking }) => {
@@ -86,6 +87,7 @@ const CheckOutForm = ({ booking }) => {
                 .then(data => {
                     setTransactionID(paymentIntent.id)
                     setSuccess('Congrats your payment completed')
+                    toast.success("Congratulation You own the car")
 
                 })
         }

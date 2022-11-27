@@ -6,6 +6,7 @@ import useSeller from '../../../hooks/UseSeller/useSeller';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 import logo from '../../../assets/logo.png'
 import BookingModalofAd from '../../AllCars/BookingModal/BookingModalofAd';
+import toast from 'react-hot-toast';
 const Advertisement = () => {
     const [adcars, setAdCars] = useState([])
     const { userRoll, user } = useContext(AuthContext)
@@ -29,7 +30,7 @@ const Advertisement = () => {
             body: JSON.stringify(car)
         })
             .then(res => res.json())
-            .then(data => console.log(data, "add to wishlist"))
+            .then(data => toast.success('Added to wishlist'))
     }
     useEffect(() => {
         setSelectedData(alterSeletedData)
@@ -78,7 +79,7 @@ const Advertisement = () => {
                                     <p>
                                         <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() =>
                                             setSelectedData(car)}>Book Now</label>
-                                        <button className='btn btn-gray mx-2 my-2 ' onClick={() => setSelectedData(car)}>Add on WishList</button></p>
+                                        <button className='btn btn-gray mx-2 my-2 ' onClick={() => handleWishlist(car)}>Add on WishList</button></p>
                                 </div>}</ProductCard>)
                             }
                         </div>
