@@ -1,16 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useToken from '../../hooks/useToken/useToken';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import Spinner from '../Shared/Spinner/Spinner';
 
 
 const Signup = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { signup, login, user, loading, logOut, updateInfo, saveUser } = useContext(AuthContext)
+    const { signup, login, user, loading, seLoading, logOut, updateInfo, saveUser } = useContext(AuthContext)
     const imageHostKey = process.env.REACT_APP_imgbb;
     const [signUpError, setSignUpError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (token) {
+
+            navigate('/')
+            seLoading(false)
+
+        }
+    }, [token]);
     const handleToSubmit = data => {
+        seLoading(true)
         console.log('it is calling')
         const img = data.img[0];
         const formData = new FormData();
@@ -38,6 +53,7 @@ const Signup = () => {
                                         .then(success => {
                                             console.log(success)
                                             console.log(user)
+                                            setCreatedUserEmail(user.email)
 
                                         })
                                         .catch(err => console.log(err))
@@ -46,12 +62,18 @@ const Signup = () => {
 
                         })
                         .catch(error => {
+                            seLoading(false)
+                            toast.error(error.message);
                         })
                 }
             })
 
     }
     const [buyorseller, setBuyOrSerller] = useState('Buyer');
+    if (loading) {
+
+        return <Spinner></Spinner>
+    }
     return (
         <div>
             <div className='border rounded-lg  m-3.5 container mx-auto max-w-md p-3'>

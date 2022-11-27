@@ -1,23 +1,49 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useToken from '../../hooks/useToken/useToken';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { user, login, saveUser } = useContext(AuthContext)
+    const { user, login, saveUser, seLoading, loading } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('');
+    const [loggedUserEmail, setLoggedUserEmail] = useState('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [token] = useToken(loggedUserEmail);
+    const from = location.state?.from?.pathname || '/';
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true })
+            console.log("dhukse")
+            seLoading(false)
+
+        }
+    }, [token])
     const handleToLogin = (data) => {
+        seLoading(true)
         login(data.email, data.password)
             .then(res => {
 
                 console.log(res.user)
+                toast('Logged in  Succesfully');
+                setLoggedUserEmail(res.user.email);
+                console.log(loggedUserEmail)
+
 
             }
             )
-            .catch(err => console.log(err))
+            .catch(err => {
+                seLoading(false)
+                toast.error(err.message)
+            })
     }
+    if (loading) { return <Spinner></Spinner> }
     return (
         <div>
             <div className='border rounded-lg  m-3.5 container mx-auto max-w-md p-3'>

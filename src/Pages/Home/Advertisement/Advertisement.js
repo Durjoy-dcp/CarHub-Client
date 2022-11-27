@@ -76,7 +76,8 @@ const Advertisement = () => {
                             {
                                 adcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
                                     <p>
-                                        <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() => setSelectedData(car)}>Book Now</label>
+                                        <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() =>
+                                            setSelectedData(car)}>Book Now</label>
                                         <button className='btn btn-gray mx-2 my-2 ' onClick={() => setSelectedData(car)}>Add on WishList</button></p>
                                 </div>}</ProductCard>)
                             }
