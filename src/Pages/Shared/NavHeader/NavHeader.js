@@ -29,7 +29,7 @@ const NavHeader = () => {
         <li className='my-2 mx-2 text-white'><Link to='/dashboard'>Dashboard</Link></li>
         {
             (user && user?.uid) ?
-                < li className='my-2 mx-2 text-white'><button className='btn btn-accent  rounded-lg  btn-outline' onClick={handleToLogOut} >Log Out</button></li> :
+                <div className='flex items-center'>< li className='my-2 mx-2 text-white'><button className='btn btn-accent  rounded-lg  btn-outline' onClick={handleToLogOut} >Log Out</button></li><li className='text-white '>{user.displayName}</li> </div> :
                 <>
 
                     <li className='my-2 mx-2 text-white'><Link to='/login'>Login</Link></li>
