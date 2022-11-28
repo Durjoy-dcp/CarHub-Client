@@ -16,6 +16,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [token] = useToken(loggedUserEmail);
+
     const from = location.state?.from?.pathname || '/';
     useEffect(() => {
         if (token) {

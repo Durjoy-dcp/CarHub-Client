@@ -54,7 +54,7 @@ const AddAProduct = () => {
 
                     }
 
-                    fetch('http://localhost:5000/productadd', {
+                    fetch('https://car-hub-server-pi.vercel.app/productadd', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -181,9 +181,9 @@ const AddAProduct = () => {
                         </label>
 
                         <select className="select select-bordered  w-full my-2 " {...register("catagory")}>
-                            <option>SEDAN</option>
-                            <option>SPORTS</option>
-                            <option>SUV</option>
+                            <option>sedan</option>
+                            <option>sports</option>
+                            <option>suv</option>
 
 
                         </select>
@@ -197,7 +197,7 @@ const AddAProduct = () => {
                             <span className="label-text">Phone Number</span>
 
                         </label>
-                        <input type="text" placeholder="Name" className="input input-bordered w-full "  {...register("phone", {
+                        <input type="text" placeholder="Number" className="input input-bordered w-full "  {...register("phone", {
                             required: "Provide a phone number",
 
                         })} />

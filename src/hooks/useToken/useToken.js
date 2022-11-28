@@ -7,7 +7,7 @@ const useToken = (email) => {
     const [token, setToken] = useState('')
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/jwt?email=${email}`)
+            fetch(`https://car-hub-server-pi.vercel.app/jwt?email=${email}`)
                 .then(res => {
                     if (res.status === 403) {
                         toast.error('Your account was deleted ,and you will not able to login or crate account with that email')

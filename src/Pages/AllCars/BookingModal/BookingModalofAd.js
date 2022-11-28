@@ -28,7 +28,7 @@ const BookingModalofAd = ({ setSelectedOption, setSelectedData, selectedData }) 
 
         }
         // console.log(booking)
-        fetch('http://localhost:5000/booking', {
+        fetch('https://car-hub-server-pi.vercel.app/booking', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

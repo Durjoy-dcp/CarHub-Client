@@ -15,14 +15,14 @@ const Advertisement = () => {
     const [selectedData, setSelectedData] = useState(null);
     const [alterSeletedData, setAlterSelectedData] = useState(null);
     useEffect(() => {
-        axios.get('http://localhost:5000/advertise')
+        axios.get('https://car-hub-server-pi.vercel.app/advertise')
             .then(data => setAdCars(data.data))
     }, [])
     const handleWishlist = car => {
         car.email = user.email;
         car._id = car.serial;
 
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://car-hub-server-pi.vercel.app/wishlist', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

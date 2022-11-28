@@ -20,7 +20,7 @@ const AllCars = () => {
     const handleWishlist = car => {
         car.email = user.email;
         // console.log(car._id, 'is calling');
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://car-hub-server-pi.vercel.app/wishlist', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -83,9 +83,9 @@ const AllCars = () => {
                         <ul className="menu p-4  bg-white w-64  md:w-80 divide-y divide-slate-200 ">
                             <li className="text-3xl bebus bg-black rounded p-2 text-white">Catagory</li>
 
-                            <li className=' text-black'><Link to={`/catagory/SUV`} >SUV</Link></li>
-                            <li className=' text-black'><Link to={`/catagory/SEDAN`} >SEDAN</Link></li>
-                            <li className=' text-black'><Link to={`/catagory/SPORTS`}>SPORTS CAR</Link></li>
+                            <li className=' text-black'><Link to={`/catagory/suv`} >SUV</Link></li>
+                            <li className=' text-black'><Link to={`/catagory/sedan`} >SEDAN</Link></li>
+                            <li className=' text-black'><Link to={`/catagory/sports`}>SPORTS CAR</Link></li>
 
 
 

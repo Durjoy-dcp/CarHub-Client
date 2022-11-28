@@ -10,9 +10,9 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const CatagoryShow = () => {
 
-    const subname = 'SUV';
-    const sportsname = 'SPORTS';
-    const sedanname = 'SEDAN'
+    const subname = 'suv';
+    const sportsname = 'sports';
+    const sedanname = 'sedan'
     return (
         <div className=' md:grid grid-cols-3 gap-3 '>
 
@@ -31,7 +31,7 @@ const CatagoryShow = () => {
                     <div className="hero-overlay bg-opacity-60   "></div>
                     <div className="hero-content text-center text-neutral-content ">
                         <div className="max-w-md  ">
-                            <h1 className="mb-5 text-5xl font-bold bebus">SUV</h1>
+                            <h1 className="mb-5 text-5xl font-bold bebus">suv</h1>
 
 
                         </div>
@@ -53,7 +53,7 @@ const CatagoryShow = () => {
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
-                            <h1 className="mb-5 text-5xl text-white font-bold bebus">SEDAN</h1>
+                            <h1 className="mb-5 text-5xl text-white font-bold bebus">sedan</h1>
 
 
                         </div>
@@ -75,7 +75,7 @@ const CatagoryShow = () => {
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
-                            <h1 className="mb-5 text-5xl font-bold bebus ">SPORTS</h1>
+                            <h1 className="mb-5 text-5xl font-bold bebus ">sports</h1>
 
 
                         </div>
