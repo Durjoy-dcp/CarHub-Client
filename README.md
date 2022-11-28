@@ -35,7 +35,6 @@ This SPA is created based on React .
 - framer-motion
 - react-hook-form
 - react-hot-toast
-- 
 - jwt(server)
 - cors (server)
 - vercel (server)
