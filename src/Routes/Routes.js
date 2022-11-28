@@ -11,6 +11,7 @@ import MyProducts from '../Pages/Dashboards/MyProducts/MyProducts';
 import MyWishList from '../Pages/Dashboards/MyWishList/MyWishList';
 import ReportedItem from '../Pages/Dashboards/ReportedItem/ReportedItem';
 import Welcome from '../Pages/Dashboards/WelCome/Welcome';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import MyOrders from '../Pages/MyOrders/MyOrders';
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
         {
             path: '/',
             element: <Main></Main>,
+            errorElement: <ErrorPage></ErrorPage>,
             children: [
                 {
                     path: '/',
