@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CarHub
+Hello there,CarHub is a advanced trading platforms for buying and selling second-hand cars
+You can find your dream car according to your own interest with catagory .This website provides
+3 role:Admin, Buyer, Seller.According to user's role it provides different dashboard to them.
 
-## Available Scripts
+**Buyers will see:** My orders,My WishList,
 
-In the project directory, you can run:
+**Sellers will see:** Add A product, My Products.
 
-### `npm start`
+**Admin will see:** All Sellers, All Buyers , Reported Items
+on their dashboard.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology
 
-### `npm test`
+This SPA is created based on React .
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React Router 
+- tailwindcss 
+- CRA
+- Stripe
+- Axios
+- NPM 
+- Github 
+- Firebase
+- Express - Node.js (for the server side) 
+- tanstack/react-query
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## External Elements ,Libraries  Used 
+- React Icons
+- react-photo-view
+- daisy
+- framer-motion
+- react-hook-form
+- react-hot-toast
+- 
+- jwt(server)
+- cors (server)
+- vercel (server)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Features
+- This app has interesting UI
+-  It is user-friendly and fully responsive.
+- People can  find cars according to catagory.
+- Admin can see all the sellers and buyers in the dashboard.He can verify them and when they got verfied ,all the items those sellers added ,a blue tick will availble their. 
+- Seller can advertise his product.And that product will be availble on a section called 'Advertisement' on home page. Once an item is paid, it won't be displayed on the advertised item or on the category page. Only available items will be displayed to be purchased.
+- If seller delete his product ,it will not show anywhere .
+- seller can add product and if he/she wants to update the sales update(already booked,availble),he/she can change this .
+- Buyer can buy cars with cards .
+- This app Load data From API and use React Router to navigate.So, Among views of various components in this application,React Router allows changing the browser URL, and keeps the UI in sync with the URL.
+- React Router Loader is used to fetch data with API . It is easy to implement.
+-  After clicking "Log in," it will
+     redirect to a login page. 2 types of login systems  Email & password login, Google login. The login page 
+     have a toggle option to go to the register page.
+## Go and Check
+- Admin: admin@admin.com
+- password :  123456@A
+Live website : https://carhub-97133.web.app
