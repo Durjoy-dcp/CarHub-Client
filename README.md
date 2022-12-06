@@ -54,6 +54,9 @@ This SPA is created based on React .
 -  After clicking "Log in," it will
      redirect to a login page. 2 types of login systems  Email & password login, Google login. The login page 
      have a toggle option to go to the register page.
+## Server 
+https://github.com/Durjoy-dcp/CarHub-server
+
 ## Go and Check
 - Admin: admin@admin.com
 - password :  123456@A
