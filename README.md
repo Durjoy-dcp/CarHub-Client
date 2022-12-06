@@ -57,6 +57,7 @@ This SPA is created based on React .
      has a toggle option to go to the register page.
 - Storing data on MongoDB with real-time service.
 - Firebase Authentication and hosting, jwt verified data fetching on Express on vercel.
+- Stripe Payment System
 ## Server 
 https://github.com/Durjoy-dcp/CarHub-server
 
