@@ -11,7 +11,7 @@ const MyProducts = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    const uri = `http://localhost:5000/product?email=${user.email}`
+    const uri = `https://car-hub-server-pi.vercel.app/product?email=${user.email}`
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products', user.email],
         queryFn: async () => {
@@ -50,7 +50,7 @@ const MyProducts = () => {
         return <Spinner></Spinner>
     }
     const handleDelete = car => {
-        fetch(`http://localhost:5000/car/${car._id}`, {
+        fetch(`https://car-hub-server-pi.vercel.app/car/${car._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -68,7 +68,7 @@ const MyProducts = () => {
             })
     }
     const handleAvailable = car => {
-        fetch(`http://localhost:5000/available`, {
+        fetch(`https://car-hub-server-pi.vercel.app/available`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const MyProducts = () => {
             })
     }
     const handleSold = car => {
-        fetch(`http://localhost:5000/sold`, {
+        fetch(`https://car-hub-server-pi.vercel.app/sold`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -121,7 +121,7 @@ const MyProducts = () => {
 
         }
 
-        fetch('http://localhost:5000/advertise', {
+        fetch('https://car-hub-server-pi.vercel.app/advertise', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

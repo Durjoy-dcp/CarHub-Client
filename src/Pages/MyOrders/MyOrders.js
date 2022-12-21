@@ -7,7 +7,7 @@ import Spinner from '../Shared/Spinner/Spinner';
 
 const MyOrders = () => {
     const { user, logOut, setUserRoll } = useContext(AuthContext);
-    const uri = `http://localhost:5000/bookinglist?email=${user.email}`
+    const uri = `https://car-hub-server-pi.vercel.app/bookinglist?email=${user.email}`
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";

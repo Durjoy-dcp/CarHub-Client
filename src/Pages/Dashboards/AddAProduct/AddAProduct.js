@@ -57,7 +57,7 @@ const AddAProduct = () => {
 
                     }
 
-                    fetch('http://localhost:5000/productadd', {
+                    fetch('https://car-hub-server-pi.vercel.app/productadd', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

@@ -7,7 +7,7 @@ const useAdmin = (email) => {
     const [adminLoading, setAdminLoadin] = useState(true);
     const { userRoll, setUserRoll } = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:5000/user/admin?email=${email}`)
+        fetch(`https://car-hub-server-pi.vercel.app/user/admin?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
