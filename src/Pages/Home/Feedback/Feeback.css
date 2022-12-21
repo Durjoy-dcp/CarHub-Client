@@ -1,0 +1,8 @@
+.feedback {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.788)), url('../../../assets/feedback.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+
+}
