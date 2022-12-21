@@ -6,6 +6,7 @@ import CatagoryShow from './CatagoryShow/CatagoryShow';
 import Feedback from './Feedback/Feedback';
 import HeaderBanner from './HeaderBanner/HeaderBanner';
 import './Home.css'
+import SecureBanner from './Securebanner/SecureBanner';
 const Home = () => {
     return (
         <div>
@@ -19,12 +20,12 @@ const Home = () => {
 
                 <CatagoryShow></CatagoryShow>
                 <Advertisement></Advertisement>
-                <div className='grid justify-items-center'>
-
-                    <Stat className="my-5"></Stat>
-                </div>
+                <SecureBanner></SecureBanner>
             </div>
             <Feedback></Feedback>
+            <div className='grid justify-items-center'>
+                <Stat className="my-5"></Stat>
+            </div>
             <Footer></Footer>
         </div>
     );

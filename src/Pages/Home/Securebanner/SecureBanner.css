@@ -1,0 +1,14 @@
+.securebanner {
+
+    background-image: url('../../../assets/paypic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
+    padding-top: 72px;
+    padding-bottom: 480px;
+    /* clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0); */
+
+
+
+
+}
