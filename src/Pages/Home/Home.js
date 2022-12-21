@@ -11,7 +11,7 @@ const Home = () => {
             <HeaderBanner></HeaderBanner>
             <div className='grid justify-items-center	'>
 
-                <h1 className="text-5xl  bebus m-3">SELECT ANY TO EXPLORE YOUR DREAM CAR</h1>
+                <h1 className="text-5xl  bebus m-2">SELECT ANY TO EXPLORE YOUR DREAM CAR</h1>
                 <CatagoryShow></CatagoryShow>
                 <Stat className="my-5"></Stat>
                 <Advertisement></Advertisement>
