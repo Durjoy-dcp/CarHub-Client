@@ -22,7 +22,7 @@ const AddAProduct = () => {
     const handleAddProduct = (data) => {
         console.log(data.img[0])
         setUpload(true)
-        console.log(data)
+
         const img = data.img[0];
         const formData = new FormData();
         formData.append('image', img);
@@ -57,7 +57,7 @@ const AddAProduct = () => {
 
                     }
 
-                    fetch('https://car-hub-server-pi.vercel.app/productadd', {
+                    fetch('http://localhost:5000/productadd', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

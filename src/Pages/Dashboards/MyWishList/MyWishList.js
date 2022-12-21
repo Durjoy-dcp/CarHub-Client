@@ -10,7 +10,7 @@ const MyWishList = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    const uri = `https://car-hub-server-pi.vercel.app/wishlist?email=${user.email}`
+    const uri = `http://localhost:5000/wishlist?email=${user.email}`
     const { data: cars = [], isLoading } = useQuery({
         queryKey: ['wishlist', user.email],
         queryFn: async () => {

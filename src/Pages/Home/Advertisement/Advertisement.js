@@ -15,14 +15,14 @@ const Advertisement = () => {
     const [selectedData, setSelectedData] = useState(null);
     const [alterSeletedData, setAlterSelectedData] = useState(null);
     useEffect(() => {
-        axios.get('https://car-hub-server-pi.vercel.app/advertise')
+        axios.get('http://localhost:5000/advertise')
             .then(data => setAdCars(data.data))
     }, [])
     const handleWishlist = car => {
         car.email = user.email;
         car._id = car.serial;
 
-        fetch('https://car-hub-server-pi.vercel.app/wishlist', {
+        fetch('http://localhost:5000/wishlist', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Advertisement = () => {
                     {/* <h1 className='text-5xl bebus text-center my-10 '>Advertisements</h1> */}
                     <div className='container   mx-auto'>
 
-                        <h1 className="text-3xl   bebus  p-3 ">Promoted </h1>
+                        <h1 className="text-3xl   bebus  p-3 " data-aos="fade-right">Promoted </h1>
                         <hr />
                     </div>
                     <div className='grid justify-items-center my-2'>

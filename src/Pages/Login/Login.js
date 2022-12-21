@@ -17,7 +17,10 @@ const Login = () => {
     const location = useLocation();
     const [token] = useToken(loggedUserEmail);
 
-    const from = location.state?.from?.pathname || '/';
+    let from = location.state?.from?.pathname || '/';
+    if (from.includes('/dashboard/')) {
+        from = '/'
+    }
     useEffect(() => {
         if (token) {
             toast('Logged in  Succesfully');
@@ -89,7 +92,7 @@ const Login = () => {
 
                     <div className='w-full text-center my-2'>
 
-                        <input type="submit" className='btn btn-gray   w-full ' value="Sign Up" />
+                        <input type="submit" className='btn btn-gray   w-full ' value="Login" />
                     </div>
                     <p className='mt-3 text-center'>New to CarHub?<Link to='/signup' className='text-secondary mx-2'>SignUp</Link></p>
                     {

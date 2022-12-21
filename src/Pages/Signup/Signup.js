@@ -125,6 +125,7 @@ const Signup = () => {
                                 }
                             }
                         )} type="password" placeholder="Password" />
+                        <p className='text-xs m-3 text-slate-500'>Password must include: At least - 6 characters,one capital letter,one number ,one special character(!@#$&*)</p>
                         {errors.password && <p className=' text-red-600 py-2' role="alert">{errors.password?.message}</p>}
 
                     </div>

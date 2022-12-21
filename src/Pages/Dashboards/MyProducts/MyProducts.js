@@ -11,7 +11,7 @@ const MyProducts = () => {
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    const uri = `https://car-hub-server-pi.vercel.app/product?email=${user.email}`
+    const uri = `http://localhost:5000/product?email=${user.email}`
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products', user.email],
         queryFn: async () => {
@@ -50,7 +50,7 @@ const MyProducts = () => {
         return <Spinner></Spinner>
     }
     const handleDelete = car => {
-        fetch(`https://car-hub-server-pi.vercel.app/car/${car._id}`, {
+        fetch(`http://localhost:5000/car/${car._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -68,7 +68,7 @@ const MyProducts = () => {
             })
     }
     const handleAvailable = car => {
-        fetch(`https://car-hub-server-pi.vercel.app/available`, {
+        fetch(`http://localhost:5000/available`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const MyProducts = () => {
             })
     }
     const handleSold = car => {
-        fetch(`https://car-hub-server-pi.vercel.app/sold`, {
+        fetch(`http://localhost:5000/sold`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -98,6 +98,7 @@ const MyProducts = () => {
             })
     }
     const handleToAddvertise = car => {
+        console.log(car)
         const advertise = {
             name: car.name,
             email: car.email,
@@ -114,12 +115,13 @@ const MyProducts = () => {
             sellername: car.sellername,
             verifiedSeller: car.verifiedSeller,
             issold: false,
+            date: car.date,
             newOwner: "",
             txnid: ""
 
         }
 
-        fetch('https://car-hub-server-pi.vercel.app/advertise', {
+        fetch('http://localhost:5000/advertise', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

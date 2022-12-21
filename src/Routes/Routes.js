@@ -39,7 +39,7 @@ const router = createBrowserRouter(
                 {
                     path: '/catagory/:id',
                     element: <AllCars></AllCars>,
-                    loader: async ({ params }) => fetch(`https://car-hub-server-pi.vercel.app/catagory/${params.id}`)
+                    loader: async ({ params }) => fetch(`http://localhost:5000/catagory/${params.id}`)
                 },
                 {
                     path: '/login',
@@ -92,7 +92,7 @@ const router = createBrowserRouter(
 
                     path: '/dashboard/payment/:id',
                     element: <Payment></Payment>,
-                    loader: async ({ params }) => fetch(`https://car-hub-server-pi.vercel.app/bookings/${params.id}`)
+                    loader: async ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
                 },
             ]
 

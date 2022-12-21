@@ -6,7 +6,7 @@ import Spinner from '../../Shared/Spinner/Spinner';
 
 const AllBuyers = () => {
     const { user } = useContext(AuthContext);
-    const uri = `https://car-hub-server-pi.vercel.app/user?email=${user.email}&&role=Buyer`
+    const uri = `http://localhost:5000/user?email=${user.email}&&role=Buyer`
     const { data: sellers = [], isLoading, refetch } = useQuery({
         queryKey: ['user', user.email],
         queryFn: async () => {
@@ -24,7 +24,7 @@ const AllBuyers = () => {
         return <Spinner></Spinner>
     }
     const handleVerify = seller => {
-        fetch(`https://car-hub-server-pi.vercel.app/verify?email=${user.email}`, {
+        fetch(`http://localhost:5000/verify?email=${user.email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const AllBuyers = () => {
             })
     }
     const handleToDelete = seller => {
-        fetch(`https://car-hub-server-pi.vercel.app/userdelet?email=${user.email}&&selleremail=${seller.email}`, {
+        fetch(`http://localhost:5000/userdelet?email=${user.email}&&selleremail=${seller.email}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

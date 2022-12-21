@@ -22,7 +22,7 @@ const AllCars = () => {
     const handleWishlist = car => {
         car.email = user.email;
         // console.log(car._id, 'is calling');
-        fetch('https://car-hub-server-pi.vercel.app/wishlist', {
+        fetch('http://localhost:5000/wishlist', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

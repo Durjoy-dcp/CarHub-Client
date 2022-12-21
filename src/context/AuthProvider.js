@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
             role,
             img
         }
-        return fetch('https://car-hub-server-pi.vercel.app/user', {
+        return fetch('http://localhost:5000/user', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
