@@ -18,7 +18,7 @@ const CatagoryShow = () => {
 
             <Link to={`/catagory/${subname}`} className='catagory-link   '>
 
-                <motion.div className="hero my-5  min-h-[500px]  min-w-[600px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sub})` }}
+                <motion.div className="hero my-5  min-h-[500px]  min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sub})` }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
                         duration: 1,
@@ -40,7 +40,7 @@ const CatagoryShow = () => {
             </Link>
             <Link to={`/catagory/${sedanname}`} className='catagory-link '>
 
-                <motion.div className="hero my-5 min-h-[500px] min-w-[600px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sedan})` }}
+                <motion.div className="hero my-5 min-h-[500px] min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sedan})` }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
                         duration: 1,
@@ -62,7 +62,7 @@ const CatagoryShow = () => {
             </Link>
             <Link to={`/catagory/${sportsname}`} className='catagory-link '>
 
-                <motion.div className="hero my-5 min-h-[500px] min-w-[600px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sports})` }}
+                <motion.div className="hero my-5 min-h-[500px] min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sports})` }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
                         duration: 1,
