@@ -1,14 +1,14 @@
 
 # CarHub
-Hello there,CarHub is a advanced trading platforms for buying and selling second-hand cars
-You can find your dream car according to your own interest with catagory .This website provides
-3 role:Admin, Buyer, Seller.According to user's role it provides different dashboard to them.
+Hello there, CarHub is an advanced trading platform for buying and selling second-hand cars
+You can find your dream car according to your interest with category. This website provides
+3 roles: Admin, Buyer, Seller. According to the user's role, it provides a different dashboard to them.
 
-**Buyers will see:** My orders,My WishList,
+**Buyers will see** My orders, My WishList,
 
 **Sellers will see:** Add A product, My Products.
 
-**Admin will see:** All Sellers, All Buyers , Reported Items
+**Admin will see:** All Sellers, All Buyers, Reported Items
 on their dashboard.
 
 
@@ -26,9 +26,10 @@ This SPA is created based on React .
 - Firebase
 - Express - Node.js (for the server side) 
 - tanstack/react-query
+- MongoDB(database)
 
 
-## External Elements ,Libraries  Used 
+## External Elements,Libraries  Used 
 - React Icons
 - react-photo-view
 - daisy
@@ -41,19 +42,25 @@ This SPA is created based on React .
 
 
 ## Features
-- This app has interesting UI
+- This app has an interesting UI
 -  It is user-friendly and fully responsive.
-- People can  find cars according to catagory.
-- Admin can see all the sellers and buyers in the dashboard.He can verify them and when they got verfied ,all the items those sellers added ,a blue tick will availble their. 
-- Seller can advertise his product.And that product will be availble on a section called 'Advertisement' on home page. Once an item is paid, it won't be displayed on the advertised item or on the category page. Only available items will be displayed to be purchased.
-- If seller delete his product ,it will not show anywhere .
-- seller can add product and if he/she wants to update the sales update(already booked,availble),he/she can change this .
-- Buyer can buy cars with cards .
-- This app Load data From API and use React Router to navigate.So, Among views of various components in this application,React Router allows changing the browser URL, and keeps the UI in sync with the URL.
-- React Router Loader is used to fetch data with API . It is easy to implement.
+- People can find cars according to category.
+- Admin can see all the sellers and buyers in the dashboard. He can verify them and when they got verified, all the items those sellers added, a blue tick will be available there. 
+- Seller can advertise his product. And that product will be available in a section called 'Advertisement' on the home page. Once an item is paid, it won't be displayed on the advertised item or on the category page. Only available items will be displayed to be purchased.
+- If the seller deletes his product, it will not show anywhere.
+- the seller can add a product and if he/she wants to update the sales update(already booked, available), he/she can change this.
+- Buyers can buy cars with cards.
+- This app loads data From API and use React Router to navigate. So, Among views of various components in this application, React Router allows changing the browser URL, and keeps the UI in sync with the URL.
+- React Router Loader is used to fetching data with API. It is easy to implement.
 -  After clicking "Log in," it will
-     redirect to a login page. 2 types of login systems  Email & password login, Google login. The login page 
-     have a toggle option to go to the register page.
+     redirect to a login page. 2 types of login systems  Email & password login, and Google login. The login page 
+     has a toggle option to go to the register page.
+- Storing data on MongoDB with real-time service.
+- Firebase Authentication and hosting, jwt verified data fetching on Express on vercel.
+- Stripe Payment System
+## Server 
+https://github.com/Durjoy-dcp/CarHub-server
+
 ## Go and Check
 - Admin: admin@admin.com
 - password :  123456@A
