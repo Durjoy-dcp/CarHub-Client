@@ -4,5 +4,9 @@
     background-size: cover;
     background-position: center;
     min-height: 500px;
+    /* clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0); */
+
+
+
 
 }

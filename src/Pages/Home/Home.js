@@ -5,17 +5,24 @@ import Advertisement from './Advertisement/Advertisement';
 import CatagoryShow from './CatagoryShow/CatagoryShow';
 import Feedback from './Feedback/Feedback';
 import HeaderBanner from './HeaderBanner/HeaderBanner';
-
+import './Home.css'
 const Home = () => {
     return (
         <div>
             <HeaderBanner></HeaderBanner>
-            <div className='grid justify-items-center	'>
+            <div className='container   mx-auto'>
 
-                <h1 className="text-5xl  bebus m-5 text-center">SELECT ANY TO EXPLORE YOUR DREAM CAR</h1>
+                <h1 className="text-3xl   bebus p-3  ">BROWSE BY CAR TYPE </h1>
+                <hr />
+            </div>
+            <div className='	'>
+
                 <CatagoryShow></CatagoryShow>
                 <Advertisement></Advertisement>
-                <Stat className="my-5"></Stat>
+                <div className='grid justify-items-center'>
+
+                    <Stat className="my-5"></Stat>
+                </div>
             </div>
             <Feedback></Feedback>
             <Footer></Footer>

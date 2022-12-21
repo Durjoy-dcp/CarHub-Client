@@ -5,9 +5,9 @@ import SwiperTab from './Swiper/SwiperTab';
 const Feedback = () => {
     return (
 
-        <div className='feedback mt-5  '>
+        <div className='feedback mt-5 rounded '>
             <div className='pt-5'>
-                <div>
+                <div >
 
                     <SwiperTab></SwiperTab>
                 </div>

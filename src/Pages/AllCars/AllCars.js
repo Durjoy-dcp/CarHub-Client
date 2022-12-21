@@ -8,6 +8,7 @@ import useAdmin from '../../hooks/UseAdmin/UseAdmin';
 import BookingModal from './BookingModal/BookingModal';
 import ScrollIntoView from '../Shared/ScrollIntoView';
 import toast from 'react-hot-toast';
+import Spinner from '../Shared/Spinner/Spinner';
 const AllCars = () => {
     const allcars = useLoaderData();
     const [selectedOption, setSelectedOption] = useState(null);
@@ -17,6 +18,7 @@ const AllCars = () => {
     const [isAdmin] = useAdmin(user?.email)
     console.log(userRoll)
     console.log(allcars)
+
     const handleWishlist = car => {
         car.email = user.email;
         // console.log(car._id, 'is calling');
@@ -30,6 +32,7 @@ const AllCars = () => {
             .then(res => res.json())
             .then(data => toast.success('Added to wishlist'))
     }
+
 
     return (
         <ScrollIntoView>
@@ -61,6 +64,8 @@ const AllCars = () => {
                         }
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-3'>
                             {
+
+
                                 allcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
                                     <p>
                                         <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() => setSelectedData(car)}>Book Now</label>

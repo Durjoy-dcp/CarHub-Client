@@ -48,40 +48,48 @@ const Advertisement = () => {
 
 
 
-                    <h1 className='text-5xl bebus text-center my-10 '>Advertisements</h1>
+                    {/* <h1 className='text-5xl bebus text-center my-10 '>Advertisements</h1> */}
+                    <div className='container   mx-auto'>
 
-                    <div>
-                        {
-                            selectedData && <BookingModalofAd selectedData={selectedData} setSelectedData={setSelectedData}></BookingModalofAd>
-                        }
+                        <h1 className="text-3xl   bebus  p-3 ">Promoted </h1>
+                        <hr />
                     </div>
-                    <div>
-                        {
-                            (userRoll !== 'Buyer' || !user) &&
-                            <div className="chat chat-start animate-pulse">
-                                <div className="chat-image avatar">
-                                    <div className="w-20 rounded-full">
-                                        <img src={logo} className="bg-slate-400 " />
+                    <div className='grid justify-items-center my-2'>
+
+
+                        <div>
+                            {
+                                selectedData && <BookingModalofAd selectedData={selectedData} setSelectedData={setSelectedData}></BookingModalofAd>
+                            }
+                        </div>
+                        <div>
+                            {
+                                (userRoll !== 'Buyer' || !user) &&
+                                <div className="chat chat-start animate-pulse">
+                                    <div className="chat-image avatar">
+                                        <div className="w-20 rounded-full m-3">
+                                            <img src={logo} className="bg-slate-400 " />
+                                        </div>
                                     </div>
+
+                                    <div className="chat-bubble">{userRoll === 'Seller' ? "You are Seller ." : "To add Product You should Login as a Seller & "} To Book You must Login as a Buyer</div>
+
                                 </div>
 
-                                <div className="chat-bubble">{userRoll === 'Seller' ? "You are Seller ." : "To add Product You should Login as a Seller & "} To Book You must Login as a Buyer</div>
 
-                            </div>
-
-
-                            // <div className="chat-bubble my-5">To Book You must Login as a Buyer</div>
-                        }
-
-                        <div className=' container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4 p-3'>
-                            {
-                                adcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
-                                    <p>
-                                        <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() =>
-                                            setSelectedData(car)}>Book Now</label>
-                                        <button className='btn btn-gray mx-2 my-2 ' onClick={() => handleWishlist(car)}>Add on WishList</button></p>
-                                </div>}</ProductCard>)
+                                // <div className="chat-bubble my-5">To Book You must Login as a Buyer</div>
                             }
+
+                            <div className=' container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4 p-3'>
+                                {
+                                    adcars.map(car => <ProductCard key={car._id} product={car}>{(userRoll === 'Buyer' && user) && <div className=' flex justify-between'>
+                                        <p>
+                                            <label htmlFor="booking-model" className='btn btn-secondary  mx-2 my-2' onClick={() =>
+                                                setSelectedData(car)}>Book Now</label>
+                                            <button className='btn btn-gray mx-2 my-2 ' onClick={() => handleWishlist(car)}>Add on WishList</button></p>
+                                    </div>}</ProductCard>)
+                                }
+                            </div>
                         </div>
                     </div>
 

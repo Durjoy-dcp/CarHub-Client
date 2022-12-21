@@ -14,76 +14,79 @@ const CatagoryShow = () => {
     const sportsname = 'sports';
     const sedanname = 'sedan'
     return (
-        <div className=' md:grid grid-cols-3 gap-3 '>
+        <div className='grid my-3 justify-items-center'>
 
-            <Link to={`/catagory/${subname}`} className='catagory-link   '>
+            <div className=' md:grid grid-cols-3 gap-3 '>
 
-                <motion.div className="hero my-5  min-h-[500px]  min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sub})` }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                        duration: 1,
+                <Link to={`/catagory/${subname}`} className='catagory-link   '>
+
+                    <motion.div className="hero my-5  min-h-[500px]  min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sub})` }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            duration: 1,
+
+                        }}
+                        initial={{ opacity: 0, scale: 0.1 }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <div className="hero-overlay bg-opacity-60   "></div>
+                        <div className="hero-content text-center text-neutral-content ">
+                            <div className="max-w-md  ">
+                                <h1 className="mb-5 text-5xl font-bold bebus">suv</h1>
 
 
-                    }}
-                    initial={{ opacity: 0, scale: 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                >
-                    <div className="hero-overlay bg-opacity-60   "></div>
-                    <div className="hero-content text-center text-neutral-content ">
-                        <div className="max-w-md  ">
-                            <h1 className="mb-5 text-5xl font-bold bebus">suv</h1>
-
-
+                            </div>
                         </div>
-                    </div>
-                </motion.div>
-            </Link>
-            <Link to={`/catagory/${sedanname}`} className='catagory-link '>
+                    </motion.div>
+                </Link>
+                <Link to={`/catagory/${sedanname}`} className='catagory-link '>
 
-                <motion.div className="hero my-5 min-h-[500px] min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sedan})` }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                        duration: 1,
-
-
-                    }}
-                    initial={{ opacity: 0, scale: 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                >
-                    <div className="hero-overlay bg-opacity-60"></div>
-                    <div className="hero-content text-center text-neutral-content">
-                        <div className="max-w-md">
-                            <h1 className="mb-5 text-5xl text-white font-bold bebus">sedan</h1>
+                    <motion.div className="hero my-5 min-h-[500px] min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sedan})` }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            duration: 1,
 
 
+                        }}
+                        initial={{ opacity: 0, scale: 0.1 }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <div className="hero-overlay bg-opacity-60"></div>
+                        <div className="hero-content text-center text-neutral-content">
+                            <div className="max-w-md">
+                                <h1 className="mb-5 text-5xl text-white font-bold bebus">sedan</h1>
+
+
+                            </div>
                         </div>
-                    </div>
-                </motion.div>
-            </Link>
-            <Link to={`/catagory/${sportsname}`} className='catagory-link '>
+                    </motion.div>
+                </Link>
+                <Link to={`/catagory/${sportsname}`} className='catagory-link '>
 
-                <motion.div className="hero my-5 min-h-[500px] min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sports})` }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                        duration: 1,
-
-
-                    }}
-                    initial={{ opacity: 0, scale: 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                >
-                    <div className="hero-overlay bg-opacity-60"></div>
-                    <div className="hero-content text-center text-neutral-content">
-                        <div className="max-w-md">
-                            <h1 className="mb-5 text-5xl font-bold bebus ">sports</h1>
+                    <motion.div className="hero my-5 min-h-[500px] min-w-[300px]  lg:min-w-[400px] md:min-w-[200px] " style={{ backgroundImage: `url(${sports})` }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            duration: 1,
 
 
+                        }}
+                        initial={{ opacity: 0, scale: 0.1 }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <div className="hero-overlay bg-opacity-60"></div>
+                        <div className="hero-content text-center text-neutral-content">
+                            <div className="max-w-md">
+                                <h1 className="mb-5 text-5xl font-bold bebus ">sports</h1>
+
+
+                            </div>
                         </div>
-                    </div>
-                </motion.div>
-            </Link>
+                    </motion.div>
+                </Link>
 
 
+
+            </div>
 
         </div>
     );

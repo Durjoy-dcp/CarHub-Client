@@ -1,0 +1,5 @@
+.clip {
+    clip-path: polygon(0 0, 100% 0%, 88% 100%, 0% 100%);
+    background: rgb(35, 41, 46);
+    color: rgb(235, 107, 107);
+}
