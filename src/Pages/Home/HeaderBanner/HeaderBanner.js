@@ -8,7 +8,7 @@ const HeaderBanner = () => {
       <div className=" md:order-last  md:w-1/2 p-3 container mx-auto">
         <h1 className="lg:text-9xl text-center md:text-left  text-5xl my-3 bebus text-red-500  ">
           {" "}
-          <span className="text-amber-500 "> Buy</span> & Sell{" "}
+          <span className="text-amber-500 "> Buy</span> And Sell{" "}
           <img src={smokeWheel} className="inline" alt="" /> <br /> Your Car
           Here!
         </h1>

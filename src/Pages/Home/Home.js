@@ -9,6 +9,8 @@ import HeaderBanner from "./HeaderBanner/HeaderBanner";
 import "./Home.css";
 import SecureBanner from "./Securebanner/SecureBanner";
 import car from "../../assets/car.gif";
+import VerticleUsages from "../VerticleUsages/VerticleUsages";
+
 const Home = () => {
   return (
     <div>
@@ -30,14 +32,17 @@ const Home = () => {
       <div className="	">
         <CatagoryShow></CatagoryShow>
         <Advertisement></Advertisement>
+        <VerticleUsages></VerticleUsages>
         <SecureBanner></SecureBanner>
       </div>
+
       <div className="container   mx-auto">
         <h1 className="text-3xl   bebus p-3  " data-aos="fade-right">
           TOP brands of the month{" "}
         </h1>
         <hr />
       </div>
+
       <Brands></Brands>
       <Feedback></Feedback>
       <div className="grid justify-items-center">
