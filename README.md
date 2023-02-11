@@ -11,7 +11,10 @@ You can find your dream car according to your interest with category. This websi
 **Admin will see:** All Sellers, All Buyers, Reported Items
 on their dashboard.
 
+<br/>
 
+<img alt="CarHub" width="400" src="https://user-images.githubusercontent.com/108381781/211246353-7b79a65a-682c-4743-af89-c64266b54b31.gif">
+<br/>
 ## Technology
 
 This SPA is created based on React .
