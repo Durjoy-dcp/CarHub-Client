@@ -66,6 +66,5 @@ This SPA is created based on React .
 https://github.com/Durjoy-dcp/CarHub-server
 
 ## Go and Check
-- Admin: admin@admin.com
-- password :  123456@A
+
 - Live website : https://carhub-97133.web.app
